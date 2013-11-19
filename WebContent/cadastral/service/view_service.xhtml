@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Service</title>
+</h:head>
+<h:body>
+	<h:form>
+		<p:panelGrid columns="4">
+			<p:column>
+				<p:inputText name="searchField" id="searchField" value="#{serviceBean.searchField}"/>
+			</p:column>
+			<p:column>
+				<p:commandButton value="pesquisar" action="#{serviceBean.findBySimilarName}" ajax="false" />
+			</p:column>
+			<p:column>
+				<p:commandButton value="Novo" action="#{serviceBean.newService}" ajax="false" />
+			</p:column>
+			<p:column>
+				<h:commandLink value=" Voltar " url="/home.xhtml?faces-redirect=true" />
+			</p:column>
+		</p:panelGrid>
+		<br/>
+		<br/>
+		<p:panelGrid columns="3">
+			<h:dataTable value="#{serviceBean.listService}" var="service" emptyMessage = "Não ha Servicos">
+			
+			<p:column>
+				<f:facet name="header">Lista de Servicos</f:facet>
+				<h:column>
+					<f:facet name="header">Nome</f:facet> 
+						#{service.name}
+				</h:column>
+			</p:column>
+			
+			<p:column>
+				<h:column>
+					<f:facet name="header">Preco</f:facet> 
+						#{service.price}
+				</h:column>
+			</p:column>
+			
+			<p:column>
+				<h:column>
+					<f:facet name="header">Editar</f:facet>
+						<p:commandButton value="Editar" action="#{serviceBean.loadService(service)}"  ajax="false" />
+					</h:column>
+			</p:column>
+			
+			<p:column>
+				<h:column>
+						<p:commandButton value="Excluir" action="#{serviceBean.remove(service)}" onclick="return confirm('Deseja realmente excluir o Servico #{service.name} ?')" ajax="false" />
+				</h:column>
+			</p:column>
+			
+			</h:dataTable>
+		</p:panelGrid>
+
+	</h:form>
+</h:body>
+</html>

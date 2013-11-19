@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<head>
+<title>Funcao</title>
+</head>
+<h:body>
+	<h:form>
+			<h:messages globalOnly="true" />
+			<br/>
+			
+		<h:inputHidden value="#{functionBean.function.id}" />
+		<h:inputHidden value="#{functionBean.function.version}" />
+
+		<h:head for="#{functionBean.function.name}">Funcao :</h:head>
+		<h:inputText value="#{functionBean.function.name}" />
+		<br/>
+		<h:commandButton value="salvar" action='#{functionBean.insert}' />
+		<h:commandButton value="voltar" action='#{functionBean.view}' />
+	</h:form>
+</h:body>
+</html>

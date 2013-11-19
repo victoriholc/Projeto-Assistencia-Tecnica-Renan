@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Assitencia Tecnica - login</title>
+</h:head>
+<h:body>
+	<h:form>
+		<p:panelGrid columns="2">
+			<p:column>Login: </p:column>
+			<p:column> <h:inputText name="login" id="login" value="#{loginBean.login}" required="true" requiredMessage="Informe o login"/></p:column>
+			<p:column>Senha:</p:column>
+			<p:column><h:inputSecret name="password" id="password" value="#{loginBean.pass}"  required="true" requiredMessage="Informe a senha"/></p:column>
+			<p:column><h:commandButton value="Logar" action="#{loginBean.makeLogin}"/></p:column>
+			<p:column> <h:commandButton value="limpar"/></p:column>
+		</p:panelGrid>
+	</h:form>
+</h:body>
+</html>

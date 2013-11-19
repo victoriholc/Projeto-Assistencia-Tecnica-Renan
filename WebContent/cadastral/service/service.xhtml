@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Service</title>
+</h:head>
+<h:body>
+	<h:messages globalOnly="true" />
+	<h:form>
+		<p:panelGrid columns="2">
+			<p:column>Servico: </p:column>
+			<p:column>
+				<h:inputHidden value="#{serviceBean.service.id}" />
+				<h:inputHidden value="#{serviceBean.service.version}" />
+				<p:inputText value="#{serviceBean.service.name}" />
+			</p:column>
+			<p:column>Preco: </p:column>
+			<p:column>
+				<p:inputMask value="#{serviceBean.service.price}" mask="999.99"/>
+			</p:column>
+			<p:column>
+				<p:commandButton value="Salvar" action="#{serviceBean.insert}" ajax="false" />
+			</p:column>
+			<p:column>
+				<p:commandButton value="Voltar" action="#{serviceBean.view}" ajax="false" />
+			</p:column>
+		</p:panelGrid>
+
+	</h:form>
+</h:body>
+</html>

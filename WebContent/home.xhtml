@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Assitencia Tecnica - login</title>
+</h:head>
+<h:body>
+	<h:form>
+		<f:view>
+			<h:form>
+				<p:menubar>
+					<p:submenu label="Organizacional">
+						<p:menuitem value="Departamento"
+							url="/organization/department/view_department.xhtml?faces-redirect=true" />
+						<p:submenu label="Funcionario">
+							<p:menuitem value="Escolaridade"
+								url="/organization/functionary/schooling/view_schooling.xhtml?faces-redirect=true" />
+							<p:menuitem value="Funcao"
+								url="/organization/functionary/function/view_function.xhtml?faces-redirect=true" />
+						</p:submenu>
+					</p:submenu>
+					
+					<p:submenu label="Cadastral">
+						<p:menuitem value="Servico"
+								url="/cadastral/service/view_service.xhtml?faces-redirect=true" />
+					</p:submenu>
+					
+					<p:submenu label="Atendimento">
+					</p:submenu>
+					
+					<p:submenu label="#{loginBean.user.login}">
+						<p:menuitem >
+							<h:commandButton value="logout" action="#{loginBean.logout}" />
+						</p:menuitem>
+					</p:submenu>
+				</p:menubar>
+			</h:form>
+		</f:view>
+
+	</h:form>
+</h:body>
+</html>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Funcao</title>
+</h:head>
+<h:body>
+	<h:form>
+	<h:inputText name="searchField" id="searchField" value="#{functionBean.searchField}"/>
+	<h:commandButton value="pesquisar" action="#{functionBean.findBySimilarName}"/>
+	<h:commandButton value="Novo" action="#{functionBean.newFunction}"/>
+		<h:dataTable value="#{functionBean.listFunction}" var="function" emptyMessage = "Não ha Funcoes">
+			<f:facet name="header">Lista de Funcoes</f:facet>
+			<h:column>
+				<f:facet name="header">Nome</f:facet> 
+					#{function.name}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Editar</f:facet>
+					<h:commandLink value="Editar" action="#{functionBean.loadFunction(function)}"/>
+					 | 
+					<h:commandLink value="Excluir" action="#{functionBean.remove(function)}" onclick="return confirm('Deseja realmente excluir a funcao #{function.name} ?')"/>
+			</h:column>
+		</h:dataTable>
+
+	</h:form>
+</h:body>
+</html>

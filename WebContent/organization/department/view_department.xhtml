@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Departamento</title>
+</h:head>
+<h:body>
+	<h:form>
+	<h:inputText name="searchField" id="searchField" value="#{departmentBean.searchField}"/>
+	<h:commandButton value="pesquisar" action="#{departmentBean.findBySimilarName}"/>
+	<h:commandButton value="Novo" action="#{departmentBean.newDepartment}"/>
+		<h:dataTable value="#{departmentBean.listDepartment}" var="department" emptyMessage = "Não ha departamentos">
+			<f:facet name="header">Lista de Departamentos</f:facet>
+			<h:column>
+				<f:facet name="header">Nome</f:facet> 
+					#{department.name}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Editar</f:facet>
+					<h:commandLink value="Editar" action="#{departmentBean.loadDepartment(department)}"/>
+					 | 
+					<h:commandLink value="Excluir" action="#{departmentBean.remove(department)}" onclick="return confirm('Deseja realmente excluir o departamento #{department.name} ?')"/>
+			</h:column>
+		</h:dataTable>
+
+	</h:form>
+</h:body>
+</html>
