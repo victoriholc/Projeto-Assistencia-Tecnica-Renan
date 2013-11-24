@@ -1,4 +1,4 @@
-package br.com.assistenciaTecnica.cadastral.exception;
+package br.com.assistenciaTecnica.cadastral.exception.service;
 
 public class ServiceAlreadyExistsException extends Exception {
 	private static final String message ="Este servico ja existe!";
@@ -10,6 +10,4 @@ public class ServiceAlreadyExistsException extends Exception {
 	public String getMessage() {
 		return message;
 	}
-	
-	
 }

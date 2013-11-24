@@ -5,7 +5,7 @@ import java.util.List;
 
 import br.com.assistenciaTecnica.cadastral.dao.IServiceDAO;
 import br.com.assistenciaTecnica.cadastral.dao.ServiceDAO;
-import br.com.assistenciaTecnica.cadastral.exception.ServiceAlreadyExistsException;
+import br.com.assistenciaTecnica.cadastral.exception.service.ServiceAlreadyExistsException;
 import br.com.assistenciaTecnica.cadastral.model.Service;
 
 public class ServiceBO {

@@ -8,7 +8,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 
 import br.com.assistenciaTecnica.cadastral.Facade;
-import br.com.assistenciaTecnica.cadastral.exception.ServiceAlreadyExistsException;
+import br.com.assistenciaTecnica.cadastral.exception.service.ServiceAlreadyExistsException;
 import br.com.assistenciaTecnica.cadastral.model.Service;
 
 @ManagedBean

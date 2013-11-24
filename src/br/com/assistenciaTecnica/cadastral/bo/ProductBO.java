@@ -1,9 +1,12 @@
 package br.com.assistenciaTecnica.cadastral.bo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import br.com.assistenciaTecnica.cadastral.dao.IProductDAO;
 import br.com.assistenciaTecnica.cadastral.dao.ProductDAO;
+import br.com.assistenciaTecnica.cadastral.exception.NoSearchResultException;
+import br.com.assistenciaTecnica.cadastral.exception.product.ProductAlreadyExistsException;
 import br.com.assistenciaTecnica.cadastral.model.Product;
 
 public class ProductBO{
@@ -14,12 +17,8 @@ public class ProductBO{
 	}
 
 	
-	public void insertProduct(Product p) {
-		try{
-			this.productDAO.insert(p);
-		}catch(Exception e){
-			e.printStackTrace();
-		}
+	public void insertProduct(Product p) throws ProductAlreadyExistsException{
+		this.productDAO.insert(p);
 	}
 
 	public void removeProduct(Product p) {
@@ -30,7 +29,7 @@ public class ProductBO{
 		}
 	}
 
-	public void refreshProduct(Product p) {
+	public void updateProduct(Product p) {
 		try{
 			this.productDAO.refresh(p);
 		}catch(Exception e){
@@ -38,22 +37,17 @@ public class ProductBO{
 		}	
 	}
 
-	public Product queryById(int i) {
-		try{
-			return productDAO.queryById(i);
-		}catch(Exception e){
-			e.printStackTrace();
-		}
-		return null;
+	public Product queryById(int i) throws NoSearchResultException{
+		return productDAO.queryById(i);	
 	}
 
-
-	public List<Product> seeAll() {
-		try{
-			return productDAO.seeAll();
-		}catch(Exception e){
-			e.printStackTrace();
+	public List<Product> seeAll() throws Exception{
+		List<Product> listProduct;
+		listProduct = productDAO.seeAll();
+		
+		if(listProduct == null || listProduct.isEmpty()){
+			listProduct = new ArrayList<Product>();
 		}
-		return null;
+		return productDAO.seeAll();	
 	}
 }
