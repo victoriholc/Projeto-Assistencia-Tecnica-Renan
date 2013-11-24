@@ -16,10 +16,10 @@ import br.com.assistenciaTecnica.cadastral.model.Product;
 public class ProductBean {
 	private Product product;
 	private String searchField = "";
-	private Collection listProduct = new ArrayList<Product>();
+	private Collection<Product> listProduct = new ArrayList<Product>();
 	
 	
-	public ProductBean(Product product, String searchField, Collection listProduct) {
+	public ProductBean(Product product, String searchField, Collection<Product> listProduct) {
 		super();
 		this.product = new Product();
 		this.searchField = searchField;
@@ -34,11 +34,11 @@ public class ProductBean {
 		this.searchField = searchField;
 	}
 
-	public Collection getListProduct() {
+	public Collection<Product> getListProduct() {
 		return listProduct;
 	}
 
-	public void setListProduct(Collection listProduct) {
+	public void setListProduct(Collection<Product> listProduct) {
 		this.listProduct = listProduct;
 	}
 
@@ -58,10 +58,10 @@ public class ProductBean {
 				Facade.getInstace().updateProduct(this.product);
 			}
 		}catch(ProductAlreadyExistsException e){
-			FacesContext.getCurrentInstance().addMessage(null , new FacesMessage("Produto já existe" + 
+			FacesContext.getCurrentInstance().addMessage(null , new FacesMessage("Produto jï¿½ existe" + 
 			this.product.getNumberSerial()));
 			e.getMessage();
-			System.out.println("Produto já existe");
+			System.out.println("Produto jï¿½ existe");
 		}		
 	}
 	
@@ -69,10 +69,10 @@ public class ProductBean {
 		try{ 
 			Facade.getInstace().removeProduct(product);
 		}catch(Exception e){
-			FacesContext.getCurrentInstance().addMessage(null,new FacesMessage("Produto não pode ser removido" +
+			FacesContext.getCurrentInstance().addMessage(null,new FacesMessage("Produto nï¿½o pode ser removido" +
 			product.getModel()));
 			
-			System.out.println("Produto não pode ser removido");
+			System.out.println("Produto nï¿½o pode ser removido");
 		}
 	}
 	
