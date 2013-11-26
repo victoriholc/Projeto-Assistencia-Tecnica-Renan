@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+	<h:head>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+		<title>Produto</title>
+	</h:head>
+	<h:body>
+		<h:form>
+		<p:panel menuTitle="Listar Produtos" header="Produtos">
+			<p:dataTable var="Produto" value="#{productBean.listProduct}" emptyMessage="Nenhum Produto Cadastrado">
+				<p:column  headerText="Marca" >  
+            		<h:outputText value="#{product.mark}" />  
+        		</p:column>   
+			
+				<p:column headerText="Modelo" >  
+            		<h:outputText value="#{product.model}" />  
+        		</p:column>   
+			
+				<p:column headerText="Serial" >  
+            		<h:outputText value="#{product.numberSerial}" />  
+        		</p:column>   
+			
+				<p:column headerText="Tipo_Produto" >  
+            		<h:outputText value="#{product.typeProduct}" />  
+        		</p:column>   
+			</p:dataTable>
+			<br />
+			<br />
+			<p:column>
+				<p:commandButton value="Novo" action="#{productBean.insertProduct}" ajax="false" />
+			</p:column>
+			
+			<p:column>
+				<p:commandButton value="Excluir" action="#{productBean.removeProduct}" ajax="false" />
+			</p:column>
+			
+			<p:column>
+				<h:commandLink value=" Voltar " url="/home.xhtml?faces-redirect=true" />
+			</p:column>
+		</p:panel>	
+		</h:form>
+	</h:body>
+</html>
