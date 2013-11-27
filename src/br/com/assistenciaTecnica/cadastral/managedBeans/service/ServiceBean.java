@@ -1,4 +1,4 @@
-package br.com.assistenciaTecnica.cadastral.managedBeans;
+package br.com.assistenciaTecnica.cadastral.managedBeans.service;
 
 import java.util.ArrayList;
 import java.util.List;
