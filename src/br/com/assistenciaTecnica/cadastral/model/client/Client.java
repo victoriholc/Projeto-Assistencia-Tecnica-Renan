@@ -7,7 +7,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
-import br.com.assistenciaTecnica.organization.model.person.Person;
+import br.com.assistenciaTecnica.generic.model.person.Person;
 
 @Entity @Table(name = "tb_client")
 @PrimaryKeyJoinColumn(name="id")

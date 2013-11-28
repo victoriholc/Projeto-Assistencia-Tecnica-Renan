@@ -5,7 +5,7 @@ import java.util.List;
 import javax.persistence.TypedQuery;
 
 import br.com.assistenciaTecnica.cadastral.model.Service;
-import br.com.assistenciaTecnica.organization.dao.DAO;
+import br.com.assistenciaTecnica.generic.dao.DAO;
 
 public class ServiceDAO extends DAO<Service> implements IServiceDAO{
 

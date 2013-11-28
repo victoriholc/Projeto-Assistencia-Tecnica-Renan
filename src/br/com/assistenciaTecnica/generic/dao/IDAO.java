@@ -1,4 +1,4 @@
-package br.com.assistenciaTecnica.organization.dao;
+package br.com.assistenciaTecnica.generic.dao;
 
 import java.util.List;
 

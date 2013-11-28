@@ -1,4 +1,4 @@
-package br.com.assistenciaTecnica.organization.model.person.phone;
+package br.com.assistenciaTecnica.generic.model.person.phone;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

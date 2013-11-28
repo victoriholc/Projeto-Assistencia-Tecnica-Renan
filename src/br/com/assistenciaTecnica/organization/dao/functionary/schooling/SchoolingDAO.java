@@ -5,7 +5,7 @@ import java.util.List;
 
 import javax.persistence.TypedQuery;
 
-import br.com.assistenciaTecnica.organization.dao.DAO;
+import br.com.assistenciaTecnica.generic.dao.DAO;
 import br.com.assistenciaTecnica.organization.model.functionary.schooling.Schooling;
 
 public class SchoolingDAO extends DAO<Schooling> implements ISchoolingDAO{

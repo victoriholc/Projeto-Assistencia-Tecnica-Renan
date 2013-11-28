@@ -1,4 +1,4 @@
-package br.com.assistenciaTecnica.organization.model.person.address;
+package br.com.assistenciaTecnica.generic.model.person.address;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;

@@ -1,4 +1,4 @@
-package br.com.assistenciaTecnica.organization.model.person;
+package br.com.assistenciaTecnica.generic.model.person;
 
 import java.util.Calendar;
 import java.util.List;
@@ -14,8 +14,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Version;
 
-import br.com.assistenciaTecnica.organization.model.person.address.Address;
-import br.com.assistenciaTecnica.organization.model.person.phone.Phone;
+import br.com.assistenciaTecnica.generic.model.person.address.Address;
+import br.com.assistenciaTecnica.generic.model.person.phone.Phone;
 
 @MappedSuperclass
 public class Person {

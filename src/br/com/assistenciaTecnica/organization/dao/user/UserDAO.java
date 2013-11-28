@@ -2,7 +2,7 @@ package br.com.assistenciaTecnica.organization.dao.user;
 
 import javax.persistence.TypedQuery;
 
-import br.com.assistenciaTecnica.organization.dao.DAO;
+import br.com.assistenciaTecnica.generic.dao.DAO;
 import br.com.assistenciaTecnica.organization.exception.user.LoginInvalidException;
 import br.com.assistenciaTecnica.organization.model.user.User;
 
