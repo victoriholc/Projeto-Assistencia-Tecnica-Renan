@@ -6,6 +6,9 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
@@ -16,7 +19,11 @@ import br.com.assistenciaTecnica.generic.model.person.address.Address;
 import br.com.assistenciaTecnica.generic.model.person.phone.Phone;
 
 @MappedSuperclass
-public class Person {
+public class Person 
+{
+	@Id @GeneratedValue(strategy = GenerationType.AUTO)
+	protected Integer id;
+	
 	@Column(nullable=false)
 	protected String name;
 	
@@ -29,15 +36,13 @@ public class Person {
 	@Temporal(TemporalType.DATE)
 	protected Calendar birthDate;
 	
-	protected Address address;
-	
-	protected String email;
-	
-	@OneToMany
-	protected List<Phone> phones;
+	public Integer getId() {
+		return id;
+	}
 
-	@Version
-	protected long version;
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 	public String getName() {
 		return name;
@@ -64,9 +69,6 @@ public class Person {
 	}
 
 	public Calendar getBirthDate() {
-		if(birthDate == null){
-			birthDate = Calendar.getInstance();
-		}
 		return birthDate;
 	}
 
@@ -105,6 +107,18 @@ public class Person {
 	public void setVersion(long version) {
 		this.version = version;
 	}
+
+	protected Address address;
+	
+	protected String email;
+	
+	@OneToMany
+	protected List<Phone> phones;
+
+	@Version
+	protected long version;
+
+
 	
 	
 }

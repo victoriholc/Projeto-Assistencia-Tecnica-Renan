@@ -31,14 +31,6 @@ public class Functionary extends Person{
 
 	@ManyToOne
 	private Function function;
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
 	
 	public User getUser() {
 		if(user == null){

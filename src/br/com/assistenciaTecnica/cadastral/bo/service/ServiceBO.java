@@ -10,6 +10,7 @@ import br.com.assistenciaTecnica.cadastral.model.Service;
 
 public class ServiceBO implements IServiceBO
 {
+	@Override
 	public void insertService(Service service) throws Exception{
 		IServiceDAO dao = new ServiceDAO(); 
 		
@@ -26,12 +27,14 @@ public class ServiceBO implements IServiceBO
 		}
 	}
 	
+	@Override
 	public void removeService(Service service){
 		IServiceDAO dao = new ServiceDAO();  
 		
 		dao.remove(service);
 	}
 	
+	@Override
 	public List<Service> seeAll(){
 		IServiceDAO dao = new ServiceDAO(); 
 		List<Service> listService;
@@ -44,6 +47,7 @@ public class ServiceBO implements IServiceBO
 		return listService;
 	}
 	
+	@Override
 	public List<Service> findBySimilarName(String name){
 		IServiceDAO dao = new ServiceDAO(); 
 		List<Service> listService;

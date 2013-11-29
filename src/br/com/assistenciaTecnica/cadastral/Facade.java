@@ -4,8 +4,11 @@ import java.util.List;
 
 import br.com.assistenciaTecnica.cadastral.bo.client.ClientBO;
 import br.com.assistenciaTecnica.cadastral.bo.client.IClientBO;
+import br.com.assistenciaTecnica.cadastral.bo.piece.IPieceBO;
 import br.com.assistenciaTecnica.cadastral.bo.piece.PieceBO;
+import br.com.assistenciaTecnica.cadastral.bo.product.IProductBO;
 import br.com.assistenciaTecnica.cadastral.bo.product.ProductBO;
+import br.com.assistenciaTecnica.cadastral.bo.service.IServiceBO;
 import br.com.assistenciaTecnica.cadastral.bo.service.ServiceBO;
 import br.com.assistenciaTecnica.cadastral.exception.NoSearchResultException;
 import br.com.assistenciaTecnica.cadastral.exception.piece.PieceAlreadyExistsException;
@@ -13,14 +16,15 @@ import br.com.assistenciaTecnica.cadastral.exception.product.ProductAlreadyExist
 import br.com.assistenciaTecnica.cadastral.model.Piece;
 import br.com.assistenciaTecnica.cadastral.model.Product;
 import br.com.assistenciaTecnica.cadastral.model.Service;
+import br.com.assistenciaTecnica.cadastral.model.client.Client;
 
 public class Facade 
 {
 	private static Facade facade;
 	
-	private ServiceBO serviceBO;
-	private ProductBO productBO;
-	private PieceBO pieceBO;
+	private IServiceBO serviceBO;
+	private IProductBO productBO;
+	private IPieceBO pieceBO;
 	private IClientBO clientBO;
 	
 	private Facade()
@@ -90,6 +94,20 @@ public class Facade
 		return pieceBO.seeAllPeice();
 	}
 	
+	public void insertClient(Client client) throws Exception{
+		clientBO.insertClient(client);
+	}
+	
+	public void removeClient(Client client){
+		clientBO.removeClient(client);
+	}
+	
+	public List<Client>seeAllClient() {
+		return clientBO.seeAll();
+	}
+	public List<Client>findBySimilarNameClient(String name) {
+		return clientBO.findBySimilarName(name);
+	}
 	
 }
 

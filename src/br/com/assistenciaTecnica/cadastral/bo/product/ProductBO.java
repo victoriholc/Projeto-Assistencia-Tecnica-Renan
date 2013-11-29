@@ -9,18 +9,21 @@ import br.com.assistenciaTecnica.cadastral.exception.NoSearchResultException;
 import br.com.assistenciaTecnica.cadastral.exception.product.ProductAlreadyExistsException;
 import br.com.assistenciaTecnica.cadastral.model.Product;
 
-public class ProductBO{
+public class ProductBO implements IProductBO
+{
 	private IProductDAO productDAO;
 
 	public ProductBO(){
 		this.productDAO = new ProductDAO();
 	}
 
-	
-	public void insertProduct(Product p) throws ProductAlreadyExistsException{
+	@Override
+	public void insertProduct(Product p) throws ProductAlreadyExistsException
+	{
 		this.productDAO.insert(p);
 	}
 
+	@Override
 	public void removeProduct(Product p) {
 		try{
 			this.productDAO.remove(p);
@@ -29,6 +32,7 @@ public class ProductBO{
 		}
 	}
 
+	@Override
 	public void updateProduct(Product p) {
 		try{
 			this.productDAO.refresh(p);
@@ -37,10 +41,12 @@ public class ProductBO{
 		}	
 	}
 
+	@Override
 	public Product queryById(int i) throws NoSearchResultException{
 		return productDAO.queryById(i);	
 	}
 
+	@Override
 	public List<Product> seeAll() throws Exception{
 		List<Product> listProduct;
 		listProduct = productDAO.seeAll();
