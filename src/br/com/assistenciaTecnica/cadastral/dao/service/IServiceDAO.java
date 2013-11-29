@@ -1,4 +1,4 @@
-package br.com.assistenciaTecnica.cadastral.dao;
+package br.com.assistenciaTecnica.cadastral.dao.service;
 
 import java.util.List;
 

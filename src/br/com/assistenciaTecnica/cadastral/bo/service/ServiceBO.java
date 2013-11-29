@@ -1,19 +1,20 @@
-package br.com.assistenciaTecnica.cadastral.bo;
+package br.com.assistenciaTecnica.cadastral.bo.service;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.assistenciaTecnica.cadastral.dao.IServiceDAO;
-import br.com.assistenciaTecnica.cadastral.dao.ServiceDAO;
+import br.com.assistenciaTecnica.cadastral.dao.service.IServiceDAO;
+import br.com.assistenciaTecnica.cadastral.dao.service.ServiceDAO;
 import br.com.assistenciaTecnica.cadastral.exception.service.ServiceAlreadyExistsException;
 import br.com.assistenciaTecnica.cadastral.model.Service;
 
-public class ServiceBO {
+public class ServiceBO implements IServiceBO
+{
 	public void insertService(Service service) throws Exception{
 		IServiceDAO dao = new ServiceDAO(); 
 		
 		try{
-			Service s = dao.findByName(service);
+			dao.findByName(service);
 			throw new ServiceAlreadyExistsException();
 			
 		}catch(javax.persistence.NoResultException e){

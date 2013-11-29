@@ -1,10 +1,10 @@
-package br.com.assistenciaTecnica.cadastral.bo;
+package br.com.assistenciaTecnica.cadastral.bo.product;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.assistenciaTecnica.cadastral.dao.IProductDAO;
-import br.com.assistenciaTecnica.cadastral.dao.ProductDAO;
+import br.com.assistenciaTecnica.cadastral.dao.product.IProductDAO;
+import br.com.assistenciaTecnica.cadastral.dao.product.ProductDAO;
 import br.com.assistenciaTecnica.cadastral.exception.NoSearchResultException;
 import br.com.assistenciaTecnica.cadastral.exception.product.ProductAlreadyExistsException;
 import br.com.assistenciaTecnica.cadastral.model.Product;

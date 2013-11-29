@@ -1,11 +1,11 @@
-package br.com.assistenciaTecnica.cadastral.bo;
+package br.com.assistenciaTecnica.cadastral.bo.piece;
 
 import java.util.List;
 
-import br.com.assistenciaTecnica.cadastral.dao.IPieceDAO;
-import br.com.assistenciaTecnica.cadastral.dao.PieceDAO;
-import br.com.assistenciaTecnica.cadastral.exception.AlreadyExisteException;
+import br.com.assistenciaTecnica.cadastral.dao.piece.IPieceDAO;
+import br.com.assistenciaTecnica.cadastral.dao.piece.PieceDAO;
 import br.com.assistenciaTecnica.cadastral.exception.NoSearchResultException;
+import br.com.assistenciaTecnica.cadastral.exception.piece.PieceAlreadyExistsException;
 import br.com.assistenciaTecnica.cadastral.model.Piece;
 
 	
@@ -13,7 +13,7 @@ public class PieceBO implements IPieceBO{
 	private IPieceDAO piece = new PieceDAO();
 
 	@Override
-	public void insertPiece(Piece piece) throws AlreadyExisteException{
+	public void insertPiece(Piece piece) throws PieceAlreadyExistsException{
 			this.piece.insert(piece);		
 	}
 

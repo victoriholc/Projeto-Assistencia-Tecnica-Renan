@@ -7,7 +7,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
 import br.com.assistenciaTecnica.cadastral.Facade;
-import br.com.assistenciaTecnica.cadastral.exception.AlreadyExisteException;
+import br.com.assistenciaTecnica.cadastral.exception.piece.PieceAlreadyExistsException;
 import br.com.assistenciaTecnica.cadastral.model.Piece;
 
 public class PieceBean {
@@ -29,7 +29,7 @@ public class PieceBean {
 			}else{
 				Facade.getInstace().updatePiece(piece);
 			}
-		}catch(AlreadyExisteException e){
+		}catch(PieceAlreadyExistsException e){
 			FacesContext.getCurrentInstance().addMessage(null,new FacesMessage("Piece Already Exists" + this.piece.getName()));
 			e.getMessage();
 		}

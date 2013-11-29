@@ -5,7 +5,6 @@ import java.util.List;
 
 import br.com.assistenciaTecnica.organization.dao.department.DepartmentDAO;
 import br.com.assistenciaTecnica.organization.dao.department.IDepartmentDAO;
-import br.com.assistenciaTecnica.organization.exception.NoSearchResultsException;
 import br.com.assistenciaTecnica.organization.exception.department.DepartmentAlreadyExistsException;
 import br.com.assistenciaTecnica.organization.model.department.Department;
 
@@ -15,7 +14,7 @@ public class DepartmentBO {
 		IDepartmentDAO dao = new DepartmentDAO(); 
 		
 		try{
-			Department d = dao.findByName(department);
+			dao.findByName(department);
 			throw new DepartmentAlreadyExistsException();
 			
 		}catch(javax.persistence.NoResultException e){

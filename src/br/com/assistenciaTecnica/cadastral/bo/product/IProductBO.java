@@ -1,4 +1,4 @@
-package br.com.assistenciaTecnica.cadastral.bo;
+package br.com.assistenciaTecnica.cadastral.bo.product;
 
 import java.util.List;
 import br.com.assistenciaTecnica.cadastral.model.Product;
