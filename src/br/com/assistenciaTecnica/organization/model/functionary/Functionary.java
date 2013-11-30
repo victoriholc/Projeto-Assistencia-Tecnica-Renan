@@ -16,10 +16,8 @@ import br.com.assistenciaTecnica.organization.model.functionary.schooling.School
 import br.com.assistenciaTecnica.organization.model.user.User;
 
 @Entity
-public class Functionary extends Person{
-	@Id @GeneratedValue
-	private int id;
-	
+public class Functionary extends Person
+{	
 	@OneToOne
 	private User user;
 	
