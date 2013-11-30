@@ -16,12 +16,6 @@ public class PieceBean {
 	private List<Piece> listPiece;
 	private String searchField;
 	
-	public PieceBean(Piece piece, List<Piece> listPiece, String searchField) {
-		super();
-		this.piece = piece;
-		this.listPiece = new ArrayList<Piece>();
-		this.searchField = searchField;
-	}
 	
 	public void insertPiece(Piece piece){
 		try{
