@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+	<h:head>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+		<title>Salvar Peca</title>
+	</h:head>
+	<h:body>
+		<h:form>
+			<p:panelGrid header="Cadastrar Pecas" columns="2" style="margin-top:20px">
+				<p:growl></p:growl>
+				<h:inputHidden value="#{pieceBean.piece.id}"></h:inputHidden>
+Nome: <p:inputText value="#{pieceBean.piece.name}" required="true"
+					requiredMessage="Nome da peça é obrigatório">
+				</p:inputText>
+				<br></br>
+Valor: <p:inputMask value="#{pieceBean.piece.value}" mask="999.99" required="true"
+					requiredMessage="Valor é obrigatório"/>
+				<br></br>
+Descrição:<p:inputTextarea rows="6" cols="33" value="#{pieceBean.piece.description}" />
+  		
+				<p:commandButton action="#{pieceBean.insertPiece}" value="Salvar"
+					ajax="false"></p:commandButton>
+					
+				<p:commandButton action="/cadastral/piece/view_piece.xhtml?faces-redirect=true" value="Voltar"
+					ajax="false"></p:commandButton>	
+			</p:panelGrid>
+		</h:form>
+	</h:body>
+</html>

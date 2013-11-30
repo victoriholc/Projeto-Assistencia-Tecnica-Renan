@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "htth://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Insert title here</title>
+</h:head>
+<h:body>
+	<h:form>
+		<h:panelGrid head="Cadastro de Pecas" columns="2" style="margin-top:20px">
+			<p:column>Marca:</p:column>
+			<p:column>
+					<h:inputHidden value="#{productBean.product.id}"></h:inputHidden>
+					<h:inputText value="#{productBean.product.mark}"></h:inputText>
+			</p:column>
+			<p:column>Modelo: </p:column>
+			<p:column>
+				<h:inputText value="#{productBean.product.model}" requered="true" 
+				requeredMessage="Modelo é obrigatorio"></h:inputText>
+			</p:column>
+
+			<p:column>Numero de Serie: </p:column>
+			<p:column>
+				<h:inputText value="#{productBean.product.numberSerial}" requered="true"
+				requeredMessage="Informe o número de Série"></h:inputText>
+			</p:column>
+
+			<p:column>Tipo_Equipamento: </p:column>
+			<p:column>
+				<h:inputText value="#{productBean.product.typeProduct}" requered="true"
+				requeredMessage="Informe o tipo de equipamento"></h:inputText>
+			</p:column>
+			
+			<p:column>
+				<h:commandButton value="Salvar" action="#{productBean.insertProduct}"
+				ajax="false"></h:commandButton>
+			</p:column>
+			<p:column>
+				<h:commandButton value="Voltar" url="home.xhtml?faces-redirect=true" />
+			</p:column>
+		
+		</h:panelGrid>
+	</h:form>
+</h:body>
+</html>

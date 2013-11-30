@@ -11,7 +11,7 @@
 	<h:body>
 		<h:form>
 		<p:panel menuTitle="Listar Produtos" header="Produtos">
-			<p:dataTable var="Produto" value="#{productBean.listProduct}" emptyMessage="Nenhum Produto Cadastrado">
+			<p:dataTable var="produto" value="#{productBean.listProduct}" emptyMessage="Nenhum Produto Cadastrado">
 				<p:column  headerText="Marca" >  
             		<h:outputText value="#{product.mark}" />  
         		</p:column>   
@@ -31,11 +31,11 @@
 			<br />
 			<br />
 			<p:column>
-				<p:commandButton value="Novo" action="#{productBean.insertProduct}" ajax="false" />
+				<p:commandButton value="Novo" action="/cadastral/product/save_product.xhtml?faces-redirect=true" />
 			</p:column>
 			
 			<p:column>
-				<p:commandButton value="Excluir" action="#{productBean.removeProduct}" ajax="false" />
+				<p:commandButton value="Excluir" action="#{productBean.removeProduct(produto)}" ajax="false" />
 			</p:column>
 			
 			<p:column>

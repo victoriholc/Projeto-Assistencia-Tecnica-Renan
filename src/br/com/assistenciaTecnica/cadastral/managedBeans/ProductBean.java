@@ -19,12 +19,7 @@ public class ProductBean {
 	private Collection<Product> listProduct = new ArrayList<Product>();
 	private String selectedObject;
 	
-	public ProductBean(Product product, String searchField, Collection<Product> listProduct,String selectedObject) {
-		super();
-		this.product = new Product();
-		this.searchField = searchField;
-		this.listProduct = new ArrayList<Product>();
-		this.selectedObject = selectedObject;
+	public ProductBean() {
 	}
 	
 	
@@ -64,35 +59,36 @@ public class ProductBean {
 	public String insertProduct(){
 		try{
 			if(product.getId() == 0){
-				Facade.getInstace().insertProduct(this.product);
+				//product.setId(null);
+				Facade.getInstace().insertProduct(product);
 			}else{
-				Facade.getInstace().updateProduct(this.product);
+				Facade.getInstace().updateProduct(product);
 			}
 		}catch(ProductAlreadyExistsException e){
 			FacesContext.getCurrentInstance().addMessage(null , new FacesMessage("Produto ja existe" + 
 			this.product.getNumberSerial()));
 			e.getMessage();
 			System.out.println("Produto ja existe");
-		}	
-		return "/cadastral/produto/view_product.xhtml";
+		}
+		return "/cadastral/product/view_product.xhtml";
 	}
 	
-	public String removeProduct(Product product){
+	public String removeProduct(Product produto){
 		try{ 
-			Facade.getInstace().removeProduct(product);
+			Facade.getInstace().removeProduct(produto);
 		}catch(Exception e){
 			FacesContext.getCurrentInstance().addMessage(null,new FacesMessage("Produto nao pode ser removido" +
-			product.getModel()));
+			produto.getModel()));
 			
 			System.out.println("Produto nao pode ser removido");
 		}
-		return "/cadastral/produto/view_product.xhtml";
+		return "/cadastral/product/view_product.xhtml";
 	}
 	
 	public String updateProduct(Product param){
 		this.product = param;
 		this.selectedObject = param.getMark();
-		return "/cadastral/produto/save_product.xhtml";
+		return "/cadastral/product/save_product.xhtml";
 	}
 	
 	public void seeAllProduct(){

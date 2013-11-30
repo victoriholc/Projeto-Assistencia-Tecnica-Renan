@@ -12,7 +12,14 @@ public class Piece {
 	private String name;
 	@Column(name = "description")
 	private String description;
+	@Column(name="value")
+	private float value;
 	
+	
+	
+	public Piece() {
+		super();
+	}
 	public int getId() {
 		return id;
 	}
@@ -30,5 +37,11 @@ public class Piece {
 	}
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	public float getValue() {
+		return value;
+	}
+	public void setValue(float value) {
+		this.value = value;
 	}
 }

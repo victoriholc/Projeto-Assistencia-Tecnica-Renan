@@ -9,7 +9,7 @@ import javax.persistence.Id;
 @Entity
 public class Product {
 	@Id @GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private Integer id;
 	@Column(name = "Type Product")
 	private String typeProduct;//decktop, nootebook, neetbook
 	@Column(name = "Mark")
@@ -19,10 +19,13 @@ public class Product {
 	@Column(name = "Number Serial")
 	private String numberSerial;//nem sempre um número de série é só composto de números
 	
+	public Product() {
+		super();
+	}
 	public int getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getTypeProduct() {

@@ -18,25 +18,30 @@
 							url="/organization/department/view_department.xhtml?faces-redirect=true" />
 						<p:submenu label="Funcionario">
 							<p:menuitem value="Escolaridade"
-								url="/organization/functionary/schooling/view_schooling.xhtml?faces-redirect=true" />
+								url="/organization/functionary/schooling/view_schooling.xhtml?faces-redirect=true" />							
 							<p:menuitem value="Funcao"
 								url="/organization/functionary/function/view_function.xhtml?faces-redirect=true" />
-						</p:submenu>
-					</p:submenu>
+						</p:submenu>	
+					</p:submenu>	
 					
 					<p:submenu label="Cadastral">
 						<p:menuitem value="Servico"
-								url="/cadastral/service/view_service.xhtml?faces-redirect=true" />
+							url="/cadastral/service/view_service.xhtml?faces-redirect=true" />
+						<p:menuitem value="Produto"
+							url="/cadastral/product/view_product.xhtml?faces-redirect=true" />
+						<p:menuitem value="Peca"
+							url="/cadastral/piece/view_piece.xhtml?faces-redirect=true" />	
 					</p:submenu>
-					
+						
 					<p:submenu label="Atendimento">
 					</p:submenu>
-					
+						
 					<p:submenu label="#{loginBean.user.login}">
 						<p:menuitem >
 							<h:commandButton value="logout" action="#{loginBean.logout}" />
 						</p:menuitem>
 					</p:submenu>
+
 				</p:menubar>
 			</h:form>
 		</f:view>

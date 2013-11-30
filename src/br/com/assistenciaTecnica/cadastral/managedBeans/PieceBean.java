@@ -4,35 +4,37 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 
 import br.com.assistenciaTecnica.cadastral.Facade;
 import br.com.assistenciaTecnica.cadastral.exception.AlreadyExisteException;
 import br.com.assistenciaTecnica.cadastral.model.Piece;
 
+@ManagedBean
 public class PieceBean {
 	private Piece piece;
 	private List<Piece> listPiece;
 	private String searchField;
+	private int selectedObject;
 	
-	public PieceBean(Piece piece, List<Piece> listPiece, String searchField) {
-		super();
-		this.piece = piece;
-		this.listPiece = new ArrayList<Piece>();
-		this.searchField = searchField;
+	public PieceBean() {
 	}
 	
-	public void insertPiece(Piece piece){
+	public String insertPiece(){
 		try{
-			if(piece.getId() == 0){
-				Facade.getInstace().insertPiece(piece);
+			Facade.getInstace().insertPiece(piece);
+			if(piece.getId() != 0){
+				
+				return "/cadastral/piece/view_piece.xhtml";
 			}else{
-				Facade.getInstace().updatePiece(piece);
+				this.piece = new Piece();
 			}
 		}catch(AlreadyExisteException e){
 			FacesContext.getCurrentInstance().addMessage(null,new FacesMessage("Piece Already Exists" + this.piece.getName()));
 			e.getMessage();
 		}
+		return "/cadastral/piece/save_piece.xhtml";
 	}
 	
 	public void removePiece(Piece piece){
@@ -41,8 +43,14 @@ public class PieceBean {
 		}catch(Exception e){
 			FacesContext.getCurrentInstance().addMessage(null,new FacesMessage("Piece can not be removed" + this.piece.getName()));
 			e.getMessage();
-			System.out.println("Produto n�o pode ser removido");
+			System.out.println("Produto nao pode ser removido");
 		}
+	}
+	
+	public String updateProduct(Piece param){
+		this.piece = param;
+		this.selectedObject = param.getId();
+		return "/cadastral/peca/save_peca.xhtml";
 	}
 	
 	public void seeAllProduct(){
@@ -56,6 +64,9 @@ public class PieceBean {
 	}
 
 	public Piece getPiece() {
+		if(piece==null){
+			this.piece =  new Piece();
+		}
 		return piece;
 	}
 
@@ -79,4 +90,12 @@ public class PieceBean {
 		this.searchField = searchField;
 	}
 	
+	public int getSelectedObject() {
+		return selectedObject;
+	}
+
+	public void setSelectedObject(int selectedObject) {
+		this.selectedObject = selectedObject;
+	}
+
 }
