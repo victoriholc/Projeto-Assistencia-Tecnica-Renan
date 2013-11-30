@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
+import br.com.assistenciaTecnica.generic.dao.IDAO;
 import br.com.assistenciaTecnica.organization.dao.*;
 import br.com.assistenciaTecnica.organization.model.department.Department;
 

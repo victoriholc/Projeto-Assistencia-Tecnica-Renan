@@ -2,7 +2,7 @@ package br.com.assistenciaTecnica.organization.dao.functionary.schooling;
 
 import java.util.List;
 
-import br.com.assistenciaTecnica.organization.dao.IDAO;
+import br.com.assistenciaTecnica.generic.dao.IDAO;
 import br.com.assistenciaTecnica.organization.model.functionary.schooling.Schooling;
 
 public interface ISchoolingDAO extends IDAO<Schooling>{

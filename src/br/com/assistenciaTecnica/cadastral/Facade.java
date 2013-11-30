@@ -2,24 +2,37 @@ package br.com.assistenciaTecnica.cadastral;
 
 import java.util.List;
 
-import br.com.assistenciaTecnica.cadastral.bo.PieceBO;
-import br.com.assistenciaTecnica.cadastral.bo.ProductBO;
-import br.com.assistenciaTecnica.cadastral.bo.ServiceBO;
-import br.com.assistenciaTecnica.cadastral.exception.AlreadyExisteException;
+import br.com.assistenciaTecnica.cadastral.bo.client.ClientBO;
+import br.com.assistenciaTecnica.cadastral.bo.client.IClientBO;
+import br.com.assistenciaTecnica.cadastral.bo.piece.IPieceBO;
+import br.com.assistenciaTecnica.cadastral.bo.piece.PieceBO;
+import br.com.assistenciaTecnica.cadastral.bo.product.IProductBO;
+import br.com.assistenciaTecnica.cadastral.bo.product.ProductBO;
+import br.com.assistenciaTecnica.cadastral.bo.service.IServiceBO;
+import br.com.assistenciaTecnica.cadastral.bo.service.ServiceBO;
 import br.com.assistenciaTecnica.cadastral.exception.NoSearchResultException;
+import br.com.assistenciaTecnica.cadastral.exception.piece.PieceAlreadyExistsException;
 import br.com.assistenciaTecnica.cadastral.exception.product.ProductAlreadyExistsException;
 import br.com.assistenciaTecnica.cadastral.model.Piece;
 import br.com.assistenciaTecnica.cadastral.model.Product;
 import br.com.assistenciaTecnica.cadastral.model.Service;
+import br.com.assistenciaTecnica.cadastral.model.client.Client;
 
-public class Facade {
-	private static Facade facade = null;
-	private ServiceBO serviceBO = null;
-	private ProductBO productBO = null;
-	private PieceBO pieceBO = null;
+public class Facade 
+{
+	private static Facade facade;
 	
-	private Facade(){
+	private IServiceBO serviceBO;
+	private IProductBO productBO;
+	private IPieceBO pieceBO;
+	private IClientBO clientBO;
+	
+	private Facade()
+	{
 		this.serviceBO = new ServiceBO();
+		this.productBO = new ProductBO();
+		this.pieceBO = new PieceBO();
+		this.clientBO = new ClientBO();
 	}
 	
 	public static Facade getInstace(){
@@ -64,7 +77,8 @@ public class Facade {
 		return productBO.seeAll();
 	}
 	
-	public void insertPiece(Piece piece) throws AlreadyExisteException{
+	public void insertPiece(Piece piece) throws PieceAlreadyExistsException
+	{
 		this.pieceBO.insertPiece(piece);
 	}
 	
@@ -79,5 +93,21 @@ public class Facade {
 	public List<Piece> seeAllPiece() throws NoSearchResultException{
 		return pieceBO.seeAllPeice();
 	}
+	
+	public void insertClient(Client client) throws Exception{
+		clientBO.insertClient(client);
+	}
+	
+	public void removeClient(Client client){
+		clientBO.removeClient(client);
+	}
+	
+	public List<Client>seeAllClient() {
+		return clientBO.seeAll();
+	}
+	public List<Client>findBySimilarNameClient(String name) {
+		return clientBO.findBySimilarName(name);
+	}
+	
 }
 

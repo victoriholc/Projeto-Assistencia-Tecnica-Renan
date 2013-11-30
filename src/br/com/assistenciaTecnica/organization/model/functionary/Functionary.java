@@ -9,10 +9,10 @@ import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.Cascade;
 
+import br.com.assistenciaTecnica.generic.model.person.Person;
 import br.com.assistenciaTecnica.organization.model.department.Department;
 import br.com.assistenciaTecnica.organization.model.functionary.function.Function;
 import br.com.assistenciaTecnica.organization.model.functionary.schooling.Schooling;
-import br.com.assistenciaTecnica.organization.model.person.Person;
 import br.com.assistenciaTecnica.organization.model.user.User;
 
 @Entity
@@ -31,14 +31,6 @@ public class Functionary extends Person{
 
 	@ManyToOne
 	private Function function;
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
 	
 	public User getUser() {
 		if(user == null){
