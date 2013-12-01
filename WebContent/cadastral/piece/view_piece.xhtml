@@ -11,8 +11,8 @@
 	<h:body>
 		<h:form>
 		<p:panel menuTitle="Listar Peca" header="Pecas">
-			<p:dataTable var="Peca" value="#{pieceBean.listPiece}" emptyMessage="Nenhum Pecas Cadastradas">
-				<p:column  headerText="Codigo" >  
+			<p:dataTable var="peca" value="#{pieceBean.listPiece}" emptyMessage="Nenhum Pecas Cadastradas">
+				<!-- <p:column  headerText="Codigo" > -->  
             		<h:outputText value="#{piece.id}" />  
         		</p:column>   
 			

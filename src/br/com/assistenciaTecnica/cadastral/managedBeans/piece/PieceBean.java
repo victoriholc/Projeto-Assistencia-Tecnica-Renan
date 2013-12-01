@@ -8,19 +8,23 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 
 import br.com.assistenciaTecnica.cadastral.Facade;
+import br.com.assistenciaTecnica.cadastral.exception.NoSearchResultException;
 import br.com.assistenciaTecnica.cadastral.exception.piece.PieceAlreadyExistsException;
 import br.com.assistenciaTecnica.cadastral.model.Piece;
+
 @ManagedBean
 public class PieceBean {
-	private Piece piece;
-	private List<Piece> listPiece;
+	private Piece piece = new Piece();
+	private List<Piece> listPiece = new ArrayList<Piece>();
 	private String searchField;
 	
 	
-	public void insertPiece(Piece piece){
+	public String insertPiece(){
 		try{
-			if(piece.getId() == 0){
-				Facade.getInstace().insertPiece(piece);
+			Facade.getInstace().insertPiece(piece);
+			System.out.println("Salvo com Sucesso");
+			if(piece.getId() != 0){
+				viewPiece();
 			}else{
 				Facade.getInstace().updatePiece(piece);
 			}
@@ -28,6 +32,7 @@ public class PieceBean {
 			FacesContext.getCurrentInstance().addMessage(null,new FacesMessage("Piece Already Exists" + this.piece.getName()));
 			e.getMessage();
 		}
+		return viewPiece();
 	}
 	
 	public void removePiece(Piece piece){
@@ -36,18 +41,12 @@ public class PieceBean {
 		}catch(Exception e){
 			FacesContext.getCurrentInstance().addMessage(null,new FacesMessage("Piece can not be removed" + this.piece.getName()));
 			e.getMessage();
-			System.out.println("Produto n�o pode ser removido");
+			System.out.println("Produto nao pode ser removido");
 		}
 	}
 	
-	public void seeAllProduct(){
-		try{
-			if(this.searchField != null && !searchField.isEmpty()){
-				this.listPiece = Facade.getInstace().seeAllPiece();
-			}
-		}catch(Exception e){
-			e.getMessage();
-		}	
+	public void seeAllProduct() throws NoSearchResultException{
+		this.listPiece = Facade.getInstace().seeAllPiece();
 	}
 
 	public Piece getPiece() {
@@ -74,4 +73,7 @@ public class PieceBean {
 		this.searchField = searchField;
 	}
 	
+	public String viewPiece(){
+		return "/cadastral/piece/view.xhtml?faces-redirect=true";
+	}
 }

@@ -1,5 +1,6 @@
 package br.com.assistenciaTecnica.cadastral.bo.piece;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import br.com.assistenciaTecnica.cadastral.dao.piece.IPieceDAO;
@@ -10,17 +11,18 @@ import br.com.assistenciaTecnica.cadastral.model.Piece;
 
 	
 public class PieceBO implements IPieceBO{
-	private IPieceDAO piece = new PieceDAO();
+	private IPieceDAO pieceBO = new PieceDAO();
+	private List<Piece> listPiece = new ArrayList<Piece>();
 
 	@Override
 	public void insertPiece(Piece piece) throws PieceAlreadyExistsException{
-			this.piece.insert(piece);		
+			this.pieceBO.insert(piece);		
 	}
 
 	@Override
 	public void removePiece(Piece piece) {
 		try{
-			this.piece.remove(piece);
+			this.pieceBO.remove(piece);
 		}catch(Exception e){
 			e.printStackTrace();
 		}
@@ -29,11 +31,12 @@ public class PieceBO implements IPieceBO{
 
 	@Override
 	public void updatePiece(Piece piece){
-		this.piece.refresh(piece);
+		this.pieceBO.refresh(piece);
 	}
 
 	@Override
 	public List<Piece> seeAllPeice() throws NoSearchResultException {
-		return piece.seeAll();
+		listPiece = pieceBO.seeAll();
+		return listPiece;
 	}
 }
